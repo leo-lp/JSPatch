@@ -88,12 +88,15 @@
     XCTAssert(obj.funcReturnBlockPassed, @"funcReturnBlockPassed");
     XCTAssert(obj.funcReturnObjectBlockPassed, @"funcReturnObjectBlockPassed");
     XCTAssert(obj.funcReturnObjectBlockReturnValuePassed, @"funcReturnObjectBlockReturnValuePassed");
+    XCTAssert(obj.funcReturnJSBlockPassed, @"funcReturnBlockPassed");
     XCTAssert(obj.callBlockWithStringAndIntPassed, @"callBlockWithStringAndIntPassed");
     XCTAssert(obj.callBlockWithStringAndIntReturnValuePassed, @"callBlockWithStringAndIntReturnValuePassed");
     XCTAssert(obj.callBlockWithArrayAndViewPassed, @"callBlockWithArrayAndViewPassed");
     XCTAssert(obj.callBlockWithBoolAndBlockPassed, @"callBlockWithBoolAndBlockPassed");
     XCTAssert(obj.callBlockWithObjectAndBlockPassed, @"callBlockWithObjectAndBlockPassed");
     XCTAssert(obj.callBlockWithObjectAndBlockReturnValuePassed, @"callBlockWithObjectAndBlockReturnValuePassed");
+    XCTAssert(obj.callBlockWithDoubleAndReturnDoublePassed, @"callBlockWithDoubleAndReturnDoublePassed");
+    
     
     XCTAssert(obj.funcToSwizzleWithStringViewIntPassed, @"funcToSwizzleWithStringViewIntPassed");
     XCTAssert(obj.funcToSwizzleViewPassed, @"funcToSwizzleViewPassed");
@@ -283,6 +286,8 @@
 - (void)testCFunction
 {
     [self loadPatch:@"jsCFunctionTest"];
+    XCTAssert([JPCFunctionTest testCfuncWithCGSize], @"testCfuncWithCGSize");
+    XCTAssert([JPCFunctionTest testCfuncWithCGRect], @"testCfuncWithCGRect");
     XCTAssert([JPCFunctionTest testCfuncWithId], @"testCfuncWithId");
     XCTAssert([JPCFunctionTest testCfuncWithInt], @"testCfuncWithInt");
     XCTAssert([JPCFunctionTest testCfuncWithCGFloat], @"testCfuncWithCGFloat");
